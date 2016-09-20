@@ -11,6 +11,7 @@ for sharing notes and projects online so that you can collaborate.  Find out whe
 companys are comeing for recruitment.The possibilities are only limited by your imagination.
 
 Colesk consists of three main layers. 
+
   1.The College/School seg, This is where the main page representing the college is made. This page is constructed by the students of the college/School by collaborating with each other. Here the events which are going on in the institution can be found. This is purely public page which everyone can view from anywhere in the world. 
   
   2.The Branch segment, here you can find out more about the branches and the projects going on. 
