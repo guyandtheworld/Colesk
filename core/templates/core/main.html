@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<html>
+<head>
+<body>
+<div class="menubar">
+	<img class = "logo" src = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRJdaEztt3ZGNgDqfVy0nqpiKTrgiO-qHAId502rI_IEkAA2vnX_KRMqW8" width = "30px" height="30px" />
+	<div class = "nav">
+		<ul>
+			<li><a href="">Feed </a></li>
+			<li><a href="">Home </a></li>
+			<li><a href="">Profile </a></li>
+		</ul>
+	</div>
+</div>
+
+<link rel="stylesheet" href="{% static 'css/notif.css' %}">
+</head>
+{% block content %}
+{% endblock %}
+</body>
+</html>
