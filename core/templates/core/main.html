@@ -1,14 +1,17 @@
 {% load staticfiles %}
 <html>
 <head>
+<title>Colesk</title>
 <link rel="stylesheet" href="{% static 'css/notif.css' %}">
 <div class="menubar">
-	<img class = "logo" src = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRJdaEztt3ZGNgDqfVy0nqpiKTrgiO-qHAId502rI_IEkAA2vnX_KRMqW8" width = "30px" height="30px" />
+	<a href="{% url 'main_page' %}">
+		<img class = "logo" src = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRJdaEztt3ZGNgDqfVy0nqpiKTrgiO-qHAId502rI_IEkAA2vnX_KRMqW8" width = "30px" height="30px" />
+	</a>
 	<div class = "nav">
 		<ul>
-			<li><a href="">Feed </a></li>
-			<li><a href="">Home </a></li>
-			<li><a href="">Profile </a></li>
+			<li><a href="{% url 'my_feed' %}">Feed .</a></li>
+			<li><a href="{% url 'networks' %}">Networks .</a></li>
+			<li><a href="{% url 'profile' %}">Profile .</a></li>
 		</ul>
 	</div>
 </div>
