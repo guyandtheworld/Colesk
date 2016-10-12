@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post
 from django.utils import timezone
+from .forms import PostForm
 
 def main_page(request):
 	posts = Post.objects.all()
@@ -18,3 +19,16 @@ def profile(request):
 
 def my_feed(request):
 	return render(request, 'core/my_feed.html', {})	
+
+def new_post(request):
+	if request.method == 'POST':
+		form = PostForm(request.POST)
+		if form.is_valid():
+			post = form.save(commit = False)
+			post.author = request.user
+			post.published_date = timezone.now()
+			post.save()
+			return redirect('post_detail', pk = post.pk)
+	else:
+		form = PostForm()
+	return render(request, 'core/post_edit.html', {'form' : form})
