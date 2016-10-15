@@ -16,8 +16,8 @@
 			<li><a href="{% url 'new_post' %}">New Post .</a></li>
 			{% endif %}
 			{% if user.is_anonymous %}
-			<li><a href="">login .</a></li>
-			{% endif %}
+			<li><a href="{% url 'login' %}">login .</a></li>
+			{% endif %} 
 			
 		</ul>
 	</div>

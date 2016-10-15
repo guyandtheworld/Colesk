@@ -32,3 +32,9 @@ def new_post(request):
 	else:
 		form = PostForm()
 	return render(request, 'core/post_edit.html', {'form' : form})
+
+def login(request):
+	return render(request, 'core/login.html', {})	
+
+def sign_up(request):
+	return render(request, 'core/sign_up.html',{})	
