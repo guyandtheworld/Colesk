@@ -4,22 +4,23 @@
 <title>Colesk</title>
 <link rel="stylesheet" href="{% static 'css/notif.css' %}">
 <div class="menubar">
-	<a href="{% url 'main_page' %}">
-		<img class = "logo" src = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRJdaEztt3ZGNgDqfVy0nqpiKTrgiO-qHAId502rI_IEkAA2vnX_KRMqW8" width = "30px" height="30px" />
-	</a>
-	<div class = "nav">
-		<ul>
-			<li><a href="{% url 'my_feed' %}">Feed .</a></li>
-			<li><a href="{% url 'networks' %}">Networks .</a></li>
-			<li><a href="{% url 'profile' %}">Profile .</a></li>
-			{% if user.is_authenticated %}
-			<li><a href="{% url 'new_post' %}">New Post .</a></li>
-			{% endif %}
-			{% if user.is_anonymous %}
-			<li><a href="{% url 'login' %}">login .</a></li>
-			{% endif %} 
+	<div class = "nav" style="background:linear-gradient(#6996ff,rgba(255,255,255,.8)); height:30px; width:99%; float:middle; text-align:right; padding:5px 7px 5px 7px; margin:0px 0px 0px 0px;">
+
+		<a href="{% url 'main_page' %}">
+			<img style="float:left; height:100%;" alt="Colesk" class = "logo" src = "{% static 'css/icon.png' %}" />
+		</a>
+		
+		<a href="{% url 'my_feed' %}">Feed </a>
+		<a href="{% url 'networks' %}">Networks </a>
+		<a href="{% url 'profile' %}">Profile </a>
+		{% if user.is_authenticated %}
+		<a href="{% url 'new_post' %}">New Post </a>
+		{% endif %}
+		{% if user.is_anonymous %}
+		<a href="{% url 'login' %}">login </a>
+		{% endif %} 
 			
-		</ul>
+		
 	</div>
 </div>
 </head>
