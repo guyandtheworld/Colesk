@@ -8,6 +8,11 @@ class PostForm(forms.ModelForm):
 		model = Post
 		fields = ('title' ,'text',)
 
+class DocumentForm(forms.Form):
+	docfile = forms.FileField(
+		label = 'Select a file'
+		)
+
 
 class UserForm(forms.ModelForm):
 	password = forms.CharField(widget=forms.PasswordInput())

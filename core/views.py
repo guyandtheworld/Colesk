@@ -1,11 +1,10 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post
 from django.utils import timezone
-from .forms import PostForm, UserForm, UserProfileForm
+from .forms import PostForm, UserForm, UserProfileForm, DocumentForm
 from django.contrib.auth import authenticate, login
 from django.http import HttpResponseRedirect, HttpResponse
-
-
+import os
 
 def main_page(request):
 	posts = Post.objects.all()
@@ -37,12 +36,14 @@ def post_edit(request, pk):
 	else:
 		form = PostForm(instance = post)
 		return render(request, 'core/post_edit.html', {'form' : form})	
+
 def new_post(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)
-		if form.is_valid():
-			handle_file(request.FILES['file'])
+		doc = DocumentForm(request.POST, request.FILES)
+		if form.is_valid() or doc.is_valid():
 			post = form.save(commit = False)
+			post.docfile = PostForm(docfile = request.FILES['docfile'])
 			post.author = request.user
 			post.published_date = timezone.now()
 			post.save()

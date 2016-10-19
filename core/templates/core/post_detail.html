@@ -3,8 +3,11 @@
 		<div class="post">
 			<div class="date">{{post.published_date}}</div>
 			<h3><a href="{% url 'post_edit' pk=post.pk %}">Edit</a></h3>
+
 			<h1>{{ post.title }}</h1>
 			<h2>{{ post.user }}</h2>
 			<p>{{ post.text | linebreaksbr }}</p>
+			<p>{{post_image}}</p>
+			<br>
 		</div>
 	{% endblock %}	
