@@ -40,10 +40,9 @@ def post_edit(request, pk):
 def new_post(request):
 	if request.method == 'POST':
 		form = PostForm(request.POST, request.FILES)
-		doc = DocumentForm(request.POST, request.FILES)
-		if form.is_valid() or doc.is_valid():
+		if form.is_valid():
 			post = form.save(commit = False)
-			post.docfile = PostForm(docfile = request.FILES['docfile'])
+			post.docfile.save(content = request.FILES["docfile"],save=False)
 			post.author = request.user
 			post.published_date = timezone.now()
 			post.save()
