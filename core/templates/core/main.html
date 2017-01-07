@@ -10,15 +10,9 @@
 			<img style="float:left; height:100%;" alt="Colesk" class = "logo" src = "{% static 'css/icon.png' %}" />
 		</a>
 		
-		<a href="{% url 'my_feed' %}">Feed </a>
-		<a href="{% url 'networks' %}">Networks </a>
-		<a href="{% url 'profile' %}">Profile </a>
 		{% if user.is_authenticated %}
 		<a href="{% url 'new_post' %}">New Post </a>
 		{% endif %}
-		{% if user.is_anonymous %}
-		<a href="{% url 'login' %}">login </a>
-		{% endif %} 
 			
 		
 	</div>
