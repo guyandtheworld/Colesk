@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>Signup</title>
+{% endblock title %}
+
+{% block head %}
+    <h1>Not Signed up with Colesk, yet? Signup to get full access.</h1>
+{% endblock head %}
+
+{% block body %}
+<form action="{% url 'signup' %}" method="post" role="form">
+    {% csrf_token %}
+    {% for field in form %}
+        <label for="{{ field.label }}">{{ field.label }}</label>
+        {{field}}
+    {% endfor %}
+    <button type="submit">Create an Account</button>
+</form>
+{% endblock body %}

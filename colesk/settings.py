@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-
+from unipath import Path
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+PROJECT_DIR = Path(__file__).parent
+
 
 # Application definition
 
@@ -38,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'colesk.core',
-    'colesk.actions'
+    'colesk.actions',
+    'colesk.accounts',
+    'colesk.posts'
 ]
 
 MIDDLEWARE = [
@@ -56,7 +60,9 @@ ROOT_URLCONF = 'colesk.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            PROJECT_DIR.child('templates'),
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

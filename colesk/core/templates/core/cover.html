@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}
+    <title>Login</title>
+{% endblock title %}
+
+{% block head %}
+    <h1>Login</h1>
+{% endblock %}
+
+{% block body %}
+<div class="login">
+<form method="post" action = "{% url 'login' %}" role="form">
+    {% csrf_token %}
+    {% for field in form %}
+        <label>{{ field.label }}</label>
+        {{ field }}
+    {% endfor %}
+	<button type="submit">Login</button>
+</form>
+<a href="{% url 'signup' %}" class = "btn btn-link">Sign up for bootcamp</a>
+</div>
+
+{% endblock %}
