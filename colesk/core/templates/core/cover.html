@@ -11,10 +11,8 @@
 <div class="login">
 <form method="post" action = "{% url 'login' %}" role="form">
     {% csrf_token %}
-    {% for field in form %}
-        <label>{{ field.label }}</label>
-        {{ field }}
-    {% endfor %}
+    Username: <input type="text" name="username" placeholder="enter your username"/> <br>
+    Password:  <input type="Password" name="password" placeholder="enter your password"/> <br>
 	<button type="submit">Login</button>
 </form>
 <a href="{% url 'signup' %}" class = "btn btn-link">Sign up for bootcamp</a>
