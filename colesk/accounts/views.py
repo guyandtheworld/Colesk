@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate, login as user_login
+from django.contrib.auth import authenticate, login as user_login, logout as user_logout
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 
@@ -10,15 +10,19 @@ def login(request):
             username = request.POST['username']
             password = request.POST['password']
             user = authenticate(username=username, password=password)
-            user_login(request, user)
-            return redirect('/')
+            if user is not None:
+                user_login(request, user)
+                return redirect('/')
+            else:
+                return redirect('/login')    
         else:
             return render(request, 'core/cover.html')    
     else:
         return redirect('/')    
 
 def logout(request):
-    pass
+    user_logout(request)
+    return redirect('/')
 
 def signup(request):
     if not request.user.is_authenticated:
