@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'colesk.core',
     'colesk.accounts',
-    'colesk.feeds'
+    'colesk.feeds',
 ]
 
 MIDDLEWARE = [
