@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,12 +6,19 @@
   <meta name="author" content="Adarsh aka. isht3 S">
   <meta name="description" content="Colesk is a platform invented to have a personalised
                         enviornment for individuals in an organisation to hangout much like in a real life enviornment">
+  <link rel="stylesheet" type="text/css" href="">
   {% block head %}
   {% endblock %}
   {% block title%}
   {% endblock %}
 </head>
 <body>
+  {% if user.is_authenticated%}
+    <div>
+        <h3><a href="/logout" title="logout of colesk">logout</a></h3>
+    </div>
+  {% endif %}  
+
   {% block body%}
   {% endblock %}
 </body>
