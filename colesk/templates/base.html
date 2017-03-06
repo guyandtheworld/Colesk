@@ -6,15 +6,24 @@
   <meta name="author" content="Adarsh aka. isht3 S">
   <meta name="description" content="Colesk is a platform invented to have a personalised
                         enviornment for individuals in an organisation to hangout much like in a real life enviornment">
-  <link rel="stylesheet" type="text/css" href="">
+  <link href="{% static 'css/colesk.css' %}" rel="stylesheet">
   {% block head %}
   {% endblock %}
   {% block title%}
   {% endblock %}
+  <style>
+    body {
+      background-color: #1f1f1f;
+    }
+    .logout-color a {
+      text-decoration:none;
+      color: red;
+    }
+  </style>
 </head>
 <body>
   {% if user.is_authenticated%}
-    <div>
+    <div class="logout-color">
         <h3><a href="/logout" title="logout of colesk">logout</a></h3>
     </div>
   {% endif %}  

@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+
+{% block head %}
+
 {% block title %}
     <title>Login</title>
 {% endblock title %}
-
-{% block head %}
     <link href="{% static 'css/cover.css' %}" rel="stylesheet">
 {% endblock %}
 
@@ -13,14 +14,22 @@
 <div class = "login-text">
     <h2>Login</h1>
 </div>
+
 <div class="login">
 <form method="post" action = "{% url 'login' %}" role="form">
     {% csrf_token %}
+    <br>
     Username: <input type="text" name="username" placeholder="enter your username"/> <br>
-    Password:  <input type="Password" name="password" placeholder="enter your password"/> <br>
+    <br>
+    Password: <input type="Password" name="password" placeholder="enter your password"/> <br>
+    <br>
 	<button type="submit">Login</button>
+    <br>
+    <br>    
 </form>
-<a href="{% url 'signup' %}" class = "btn btn-link">Sign up for bootcamp</a>
+<a href="{% url 'signup' %}" class = "btn btn-link">Sign up for Colesk</a>
+<br>
+<br>
 </div>
 
 {% endblock %}

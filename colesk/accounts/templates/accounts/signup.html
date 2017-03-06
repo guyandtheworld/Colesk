@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
-
-{% block title %}
-    <title>Signup</title>
-{% endblock title %}
+{% load staticfiles %}
 
 {% block head %}
-    <h1>Not Signed up with Colesk, yet? Signup to get full access.</h1>
+    {% block title %}
+        <title>Signup</title>
+    {% endblock title %}
+    <link href="{% static 'css/signup.css' %}" rel="stylesheet">
 {% endblock head %}
 
 {% block body %}
-<form action="{% url 'signup' %}" method="post" role="form">
-    {% csrf_token %}
-    {% for field in form %}
-        <label for="{{ field.label }}">{{ field.label }}</label>
-        {{field}}
-    {% endfor %}
-    <button type="submit">Create an Account</button>
-</form>
+<div class="signup-text">
+    <h2>Not Signed up with Colesk, yet? Signup to get full access.</h2>
+</div>
+
+<div>
+    <form action="{% url 'signup' %}" method="post" role="form">
+        {% csrf_token %}
+        {% for field in form %}
+            <label for="{{ field.label }}">{{ field.label }}</label><br>
+            {{field}}<br><br>
+        {% endfor %}
+        <button type="submit">Create an Account</button>
+    </form>
+</div>
 {% endblock body %}
