@@ -132,3 +132,4 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
     PROJECT_DIR.child('static'),)
+LOGIN_URL = '/login'

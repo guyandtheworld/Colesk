@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %} 
+
+{% block title %}
+<title>{{ question.title }}</title>
+{% endblock title %}
+
+<link href="{% static 'css/question_detail.css' %}" rel="stylesheet">
+
+{% endblock head %}
+{% block body %}    
+<div class="question-detail">
+    <h2>{{ question }}</h2>
+</div>
+<div>
+{% for answer in answers %}
+    <h3>{{ answer.description }}</h3>
+{% endfor %}
+</div>
+{% endblock body %}

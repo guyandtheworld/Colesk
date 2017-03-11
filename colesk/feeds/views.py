@@ -9,10 +9,15 @@ from colesk.feeds.forms import QuestionForm, AnswerForm
 @login_required
 def feeds(request):
     questions = Question.objects.all()
-    print(questions)
     return render(request, 'feeds/feeds.html',
                      {'questions': questions})
 
 @login_required
-def question(request):
-    pass
+def question(request, title):
+    answers = {}
+    question = Question.objects.filter(title=title)[0]
+    answers = Answer.objects.filter(question=question.pk)
+    print(answers)
+    return render(request, 'feeds/question_detail.html',
+                    {'question': question,
+                     'answers': answers})

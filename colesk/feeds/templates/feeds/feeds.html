@@ -1,18 +1,20 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
+{% block head %}
+
 {% block title %}
     <title>Feeds</title>
 {% endblock title %}
 
-{% block head %}
-<link href="{% static 'css/feeds.css' %}" rel="stylesheet">
+    <link href="{% static 'css/feeds.css' %}" rel="stylesheet">
+
 {% endblock head %}
 
 {% block body %}
     <div class="question-color">
         {% for question in questions %}
-        <h2>{{question}}</h2>
+           <h2><a href="{% url 'question' question.title %}">{{question}}</a></h2>
         {% endfor %}
     </div> 
 {% endblock body %} 
