@@ -9,6 +9,7 @@ from colesk.feeds.forms import QuestionForm, AnswerForm
 @login_required
 def feeds(request):
     questions = Question.objects.all()
+    print("@#$%^&&*",request.user.id)
     return render(request, 'feeds/feeds.html',
                      {'questions': questions})
 
@@ -21,3 +22,11 @@ def question(request, title):
     return render(request, 'feeds/question_detail.html',
                     {'question': question,
                      'answers': answers})
+
+@login_required
+def new(request):
+    if request.method == 'POST':
+        pass
+    else:
+        form = QuestionForm()
+        return render(request, )

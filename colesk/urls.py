@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^signup/$', account_views.signup, name = 'signup'),
     url(r'^login/$', account_views.login, name = 'login'),
     url(r'^logout/$', account_views.logout, name = 'logout'),
-    url(r'^(?P<title>[^/]+)/$', feed_views.question, name = 'question')
+    url(r'^(?P<title>[^/]+)/$', feed_views.question, name = 'question'),
+    url(r'^new/$', feed_views.new, name='new_post'),
 
 ]
