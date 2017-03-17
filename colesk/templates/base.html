@@ -15,7 +15,7 @@
     body {
       background-color: #1f1f1f;
     }
-    .logout-color a {
+    .menu-bar a {
       text-decoration:none;
       color: red;
     }
@@ -23,8 +23,13 @@
 </head>
 <body>
   {% if user.is_authenticated%}
-    <div class="logout-color">
-        <h3><a href="/logout" title="logout of colesk">logout</a></h3>
+    <div class="menu-bar">
+        <ul>
+          <li><a href="{% url 'home' %}" title="Home">Home</a></li>
+          <li><a href="{% url 'new_post' %}" title="Post a new Question">new-question</a></li>
+          <li><a href="">profile</a></li>
+          <li><a href="{% url 'logout' %}" title="Logout of Colesk">logout</a></li>
+        </ul>
     </div>
   {% endif %}  
 

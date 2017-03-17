@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+{% block title %}
+<title>New Question</title>
+{% endblock title %}
+
+<link href="{% static 'css/new.css' %}" rel="stylesheet">
+{% endblock head %}
+
+{% block body %}
+<div>
+    hi
+    <form action="{% url 'new_post' %} " method="post" role="form">
+        {% csrf_token %}
+            {{form}}
+        <button type="submit">Post</button>
+    </form>
+</div>
+{% endblock body %}
