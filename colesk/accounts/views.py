@@ -38,7 +38,6 @@ def signup(request):
                 User.objects.create_user(username=username, email=email,
                                             password=password)
                 user = authenticate(username=username, password=password)
-                print(user)
                 user_login(request, user)
                 return redirect('/')
         else:

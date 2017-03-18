@@ -27,7 +27,6 @@ def new_question(request):
         form = QuestionForm(request.POST)
         if form.is_valid():
             question = Question()
-            print(form)
             question.title = form.cleaned_data.get('title')
             question.user_id = request.user.id
             question.save()
