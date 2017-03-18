@@ -11,8 +11,7 @@
 
 {% block body %}
 <div>
-    hi
-    <form action="{% url 'new_post' %} " method="post" role="form">
+    <form action="{% url 'new_question' %} " method="post" role="form">
         {% csrf_token %}
             {{form}}
         <button type="submit">Post</button>
